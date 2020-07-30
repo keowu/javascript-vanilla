@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relógio BR</title>
+        <style>
+            body{
+                text-align: center;
+                margin: 0 auto;
+                background-color: #a3f7b5;
+                color: #664147;
+                font: normal 12pt Arial;
+            }
+            
+            form button{
+                background-color: #664147;
+                padding: 20px 90px;
+                color: white;
+                border-radius: 10px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+            
+            form button:hover{
+                background-color: white;
+                border: 1px solid black;
+                color: black;
+            }
+            
+            div#content{
+                margin-top: 20px;
+                color: white;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <form>
+            <div id="content">....</div>
+            <div id="relogio">....</div>
+            <button id="btnget" type="button">GET HOUR</button>
+        </form>
+        <script>
+            var btn = window.document.body.querySelector('#btnget');
+            var conteudos = window.document.body.querySelector('div#relogio');
+            function relogio(){
+                var agora = new Date();
+                var hora = agora.getHours();
+                var minutos = agora.getMinutes();
+                var segundos = agora.getSeconds();
+                var miliseconds = agora.getMilliseconds();
+                conteudos.innerHTML = `<h2>${hora}:${minutos}:${segundos}:${miliseconds}</h2>`;
+            }
+            
+            //ESCUTAR O CLICK
+            btn.addEventListener('click', function(){
+                var agora = new Date();
+                var hora = agora.getHours();
+                var diaSem = agora.getDay();
+                var ano = agora.getYear();
+                var conteudo = window.document.body.querySelector('#content');
+                conteudo.innerHTML = '';
+                
+                //GET DIA DA SEMANA
+                switch(diaSem){
+                    
+                    case 0:
+                        conteudo.innerHTML += `<h1>Domingo</h1>`;
+                        break;
+                    case 1:
+                        conteudo.innerHTML += `<h1>Segunda-Feira</h1>`;
+                        break;
+                    case 2:
+                        conteudo.innerHTML += `<h1>Terça-Feira</h1>`;
+                        break;
+                    case 3:
+                        conteudo.innerHTML += `<h1>Quarta-Feira</h1>`;
+                        break;
+                    case 4:
+                        conteudo.innerHTML += `<h1>Quinta-Feira</h1>`;
+                        break;
+                    case 5:
+                        conteudo.innerHTML += `<h1>Sexta-Feira</h1>`;
+                        break;
+                    case 6:
+                        conteudo.innerHTML += `<h1>Sábado</h1>`;
+                        break;
+                        
+                }
+                
+                if ((hora >= 6) && (hora <= 12)){
+                    conteudo.innerHTML += `Bom dia ! Tenha um excelente dia !`;
+                }else if ((hora >= 13) && (hora <= 18)){
+                    conteudo.innerHTML += `Boa Tarde ! Tenha uma excelente tarde !`;
+                }else if((hora >= 19) && (hora <= 00)){
+                    conteudo.innerHTML += `Boa Noite ! Tenha uma excelente noite !`;
+                }else{
+                    conteudo.innerHTML += `Boa Madrugada ! Tenha uma excelente madrugada !`;
+                }
+                
+            });
+            
+                                        //ATUALIZA O RELOGIO A CADA 1 SEGUNDO
+                window.setInterval(relogio(), 1000);
+            
+            
+        </script>
+    </body>
+</html>

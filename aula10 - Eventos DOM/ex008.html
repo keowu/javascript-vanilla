@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Somando Números</title>
+        <style>
+            body{
+                font: normal 18pt Arial;
+                text-align: center;
+                background-color: crimson;
+                color: white;
+            }
+            
+            input{
+                font: normal 18pt Arial;
+                width: 100px;
+            }
+            
+            div#res{
+                margin-top: 20px;
+            }
+            
+            input#btnsoma{
+                padding: 4px;
+                background-color: chartreuse;
+                color: white;
+                border: 0;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Somando valores</h1>
+        <input type="number" name="txtn1" id="txtn1">+
+        <input type="number" name="textn2" id="txtn2">
+        <input type="button" value="somar" id="btnsoma">
+        <div id="res">Resultado</div>
+        <script>
+            //references
+            //https://developer.mozilla.org/pt-BR/docs/Web/Events
+            var btn = window.document.body.querySelector('input#btnsoma');
+            btn.addEventListener('click', function(){
+                var tnumero1 = window.document.body.querySelector('input#txtn1');
+                var tnumero2 = window.document.body.querySelector('input#txtn2');
+                
+                var numero1 = Number(tnumero1.value);
+                var numero2 = Number(tnumero2.value);
+                var res = window.document.body.querySelector('div#res');
+                
+                if ((numero1 == 0) || (numero2 == 0)){
+                    res.innerHTML = `Você digitou ${numero1} e ${numero2} ambos são 0 e você não pode somar 0 com 0.`;
+                    return false;
+                } 
+                
+                var soma = numero1 + numero2;
+                res.innerHTML = `A soma entre ${numero1} e ${numero2} é igual a ${soma}`;
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+body{
+    background: rgb(107, 165, 241);
+    font: normal 15pt Arial;
+}
+
+header{
+    color: white;
+    text-align: center;
+}
+
+section{
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.363);
+}
+
+
+form{
+    text-align: center;
+}
+
+form input, form select{
+    margin-top: 10px;
+    width: 100%;
+}
+
+form input[type="button"]{
+    padding: 20px;
+    border: 1px solid crimson;
+    color: white;
+    background-color: crimson;
+}
+
+form input[type="button"]:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+form input[type="text"]{
+    height: 100px;
+    font: normal 20pt Arial;
+    text-align: center;
+}
+
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+}

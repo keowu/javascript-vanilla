@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Primeiros passos com DOM</title>
+        <style>
+            body{
+                background: rgb(68, 125, 199);
+                color: white;
+                font: normal 18pt Arial;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Iniciando estudos DOM</h1>
+        <p>Aqui vai o resultado</p>
+        <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+        <div id="msg" name="msg" class="msg">Clique em mim.</div>
+        <script>
+            /*
+            // POR TAG
+            var corpo = window.document.body;
+            var p1 = window.document.getElementsByTagName('p')[0]; //PEGA P PRIMEIRO PARAGRAFO
+            window.document.write('Está escrito assim: ' + p1.innerText);
+            p1.style.color = 'blue';
+            corpo.style.background = 'black';
+            
+            p1 = window.document.getElementsByTagName('p')[1];//PEGA P SEGUNDO PARAGRAFO
+            document.write(p1.innerHTML);
+            window.alert(p1.innerText);
+            
+            
+            //POR ID
+            var d = window.document.getElementById('msg');
+            d.style.background = 'green';
+            //d.innerText = 'Estou aguardando..';
+            window.document.getElementById('msg').innerText = 'Olá';
+            
+            
+            //POR NOME
+            var d = window.document.getElementsByName('msg')[0];
+            d.innerText = 'Olá';
+            
+            
+            //POR CLASSE
+            var d = window.document.getElementsByClassName('msg')[0];
+            d.innerText = 'Olá mundo !!!!';
+            
+            //POR SELETOR
+            var d = window.document.querySelector('div#msg');//se for uma classe substituir por .
+            d.style.color = 'blue';
+            d.style.background = 'red';
+            */
+            
+            
+            //TREINO
+            window.document.getElementById('msg').style.background = 'black';
+            var p = window.document.getElementsByTagName('p')[0];
+            p.style.color = 'red';
+            var corpo = window.document.body;
+            corpo.style.background = 'black';
+            var p2 = document.getElementsByTagName('p')[1];
+            p2.innerHTML = '<strong>Olá mundo</strong>';
+            p2.innerHTML = p2.innerHTML.replace('<strong>', '').replace('</strong>', '');
+        </script>
+    </body>
+</html>

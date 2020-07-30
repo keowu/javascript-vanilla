@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Polícia Federal</title>
+        <style>
+            body{
+                text-align: center;
+                margin: 0 auto;
+                background-color: cornflowerblue;
+                color: white;
+                font: normal 12pt Arial;
+            }
+            
+            form{
+                margin-top: 20px;
+            }
+            
+            input#txtcountry{
+                width: 400px;
+                height: 50px;
+                border-radius: 10px;
+                border-color: crimson;
+            }
+            
+            input#btnverify{
+                padding: 20px;
+                background-color: crimson;
+                color: white;
+                border: 0;
+                border-radius: 10px;
+            }
+            
+            #warn{
+                background-color: red;
+                color: white;
+                font: normal 15pt Arial;
+            }
+            
+            #success{
+                background-color: greenyellow;
+                color: white;
+                font: normal 15pt Arial;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <form onsubmit="return false;">
+            <label for=""></label>
+            <input type="text" placeholder="Seu país de origem." id="txtcountry">
+            <input type="button" value="Verificar legalidade" id="btnverify">
+            <div id="msgres"></div>
+        </form>
+        
+        <script>
+            var btn = window.document.body.querySelector('input#btnverify');
+            
+            btn.addEventListener('click', function(){
+                var país = window.document.body.querySelector('input#txtcountry'); 
+                var res = window.document.body.querySelector('div#msgres');
+                res.innerHTML = `<p> Seu país de origem é <strong>${país.value}</strong>.</p>`;
+                if(país.value != 'Brasil'){
+                    res.innerHTML += `<p>Confira a validade de seu visto, para não ter problema.</p>`;
+                    res.innerHTML += `<span id="warn">Você é um estrangeiro</span>`;
+                }else{
+                    res.innerHTML += `<p>Tudo certo !</p>`;
+                    res.innerHTML += `<span id="success">Você é Brasileiro</span>`;
+                }
+                
+                
+            });
+        </script>
+    </body>
+</html>
